@@ -1,0 +1,46 @@
+name: "Release Poetry Python Project"
+description: "Release a Poetry Python project using semantic-release"
+branding:
+  icon: upload-cloud
+  color: blue
+
+inputs:
+  python-version:
+    description: "Python version"
+    required: true
+  poetry-version:
+    description: "Poetry version"
+    required: true
+  pypi-token:
+    description: "PyPI token"
+    required: true
+  github-token:
+    description: "GitHub token"
+    required: false
+    default: ${{ github.token }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: "lts/*"
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "${{ inputs.python-version }}"
+    - name: Setup Poetry
+      shell: sh
+      run: "pip install poetry==${{ inputs.poetry-version }}"
+    - name: Install semrel dependencies
+      shell: sh
+      run: npm i --no-save @cihelper/preset-semanticrelease-poetry
+    - name: Run Semantic Release
+      shell: sh
+      env:
+        PYPI_TOKEN: ${{ inputs.pypi-token }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+      run: npx semantic-release --extends @cihelper/preset-semanticrelease-poetry

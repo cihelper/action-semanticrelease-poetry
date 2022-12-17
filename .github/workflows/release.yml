@@ -1,0 +1,9 @@
+name: build
+
+on: [push]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cihelper/action-semanticrelease-githubaction@v1
