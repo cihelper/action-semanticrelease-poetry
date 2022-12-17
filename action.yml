@@ -37,7 +37,7 @@ runs:
       run: "pip install poetry==${{ inputs.poetry-version }}"
     - name: Install semrel dependencies
       shell: sh
-      run: npm i --no-save @cihelper/preset-semanticrelease-poetry
+      run: npm i --no-save @cihelper/preset-semanticrelease-poetry@^1.0.0
     - name: Run Semantic Release
       shell: sh
       env:
