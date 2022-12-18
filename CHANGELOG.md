@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.1.2...v1.1.3) (2022-12-18)
+
+
+### Bug Fixes
+
+* rename packages ([813f31d](https://github.com/cihelper/action-semanticrelease-poetry/commit/813f31d361abfd44d5192534c10a9fa594a0cfa6))
+
 ## [1.1.2](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.1.1...v1.1.2) (2022-12-18)
 
 
