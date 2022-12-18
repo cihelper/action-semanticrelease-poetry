@@ -57,7 +57,7 @@ runs:
     - name: Get semantic-release version
       shell: sh
       id: semantic-release-version
-      run: "echo version=$(npm view @cihelper/preset-semanticrelease-poetry dependencies.semantic-release) >> $GITHUB_OUTPUT"
+      run: "echo version=$(npm view @cihelper/semanticrelease-preset-poetry dependencies.semantic-release) >> $GITHUB_OUTPUT"
     - name: Run semantic-release
       id: semantic-release
       uses: cycjimmy/semantic-release-action@v3
@@ -66,5 +66,5 @@ runs:
         PYPI_TOKEN: ${{ inputs.pypi-token }}
       with:
         semantic_version: ${{ steps.semantic-release-version.outputs.version }}
-        extra_plugins: "@cihelper/preset-semanticrelease-poetry@^1.0.0"
-        extends: "@cihelper/preset-semanticrelease-poetry"
+        extra_plugins: "@cihelper/semanticrelease-preset-poetry@^1.0.0"
+        extends: "@cihelper/semanticrelease-preset-poetry"
