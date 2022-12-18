@@ -6,41 +6,65 @@ branding:
 
 inputs:
   python-version:
-    description: "Python version"
-    required: true
+    description: "Python version. If not set, Python will not be setup automatically."
+    required: false
   poetry-version:
-    description: "Poetry version"
-    required: true
+    description: "Poetry version. If not set, poetry will not be setup automatically."
+    required: false
   pypi-token:
-    description: "PyPI token"
-    required: true
+    description: "PyPI token. If not set, we will not publish the package."
+    required: false
   github-token:
     description: "GitHub token"
     required: false
     default: ${{ github.token }}
 
+outputs:
+  success:
+    description: New release published
+    value: ${{ steps.semantic-release.new_release_published }}
+  version:
+    description: Version
+    value: ${{ steps.semantic-release.new_release_version }}
+  major:
+    description: Major version
+    value: ${{ steps.semantic-release.new_release_major_version }}
+  minor:
+    description: Minor version
+    value: ${{ steps.semantic-release.new_release_minor_version }}
+  patch:
+    description: Patch version
+    value: ${{ steps.semantic-release.new_release_patch_version }}
+  channel:
+    description: Release channel
+    value: ${{ steps.semantic-release.new_release_channel }}
+  release-notes:
+    description: Release notes
+    value: ${{ steps.semantic-release.new_release_notes }}
+
 runs:
   using: "composite"
   steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: "lts/*"
     - name: Setup Python
+      if: ${{ inputs.python-version }}
       uses: actions/setup-python@v4
       with:
         python-version: "${{ inputs.python-version }}"
     - name: Setup Poetry
+      if: ${{ inputs.poetry-version }}
       shell: sh
       run: "pip install poetry==${{ inputs.poetry-version }}"
-    - name: Install semrel dependencies
+    - name: Get semantic-release version
       shell: sh
-      run: npm i --no-save @cihelper/preset-semanticrelease-poetry@^1.0.0
-    - name: Run Semantic Release
-      shell: sh
+      id: semantic-release-version
+      run: "echo version=$(npm view @cihelper/preset-semanticrelease-poetry dependencies.semantic-release) >> $GITHUB_OUTPUT"
+    - name: Run semantic-release
+      id: semantic-release
+      uses: cycjimmy/semantic-release-action@v3
       env:
-        PYPI_TOKEN: ${{ inputs.pypi-token }}
         GITHUB_TOKEN: ${{ inputs.github-token }}
-      run: npx semantic-release --extends @cihelper/preset-semanticrelease-poetry
+        PYPI_TOKEN: ${{ inputs.pypi-token }}
+      with:
+        semantic_version: ${{ steps.semantic-release-version.outputs.version }}
+        extra_plugins: "@cihelper/preset-semanticrelease-poetry@^1.0.0"
+        extends: "@cihelper/preset-semanticrelease-poetry"
