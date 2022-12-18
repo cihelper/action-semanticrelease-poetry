@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.1.3...v1.1.4) (2022-12-18)
+
+
+### Bug Fixes
+
+* loosen version constraints ([ccf6624](https://github.com/cihelper/action-semanticrelease-poetry/commit/ccf6624ca2f2e2406db59fc37a1e3f6bfa588e93))
+
 ## [1.1.3](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.1.2...v1.1.3) (2022-12-18)
 
 
