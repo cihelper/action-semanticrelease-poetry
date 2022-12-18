@@ -22,25 +22,25 @@ inputs:
 outputs:
   released:
     description: New version released
-    value: ${{ steps.semantic-release.new_release_published }}
+    value: ${{ steps.semantic-release.outputs.new_release_published }}
   version:
     description: Version
-    value: ${{ steps.semantic-release.new_release_version }}
+    value: ${{ steps.semantic-release.outputs.new_release_version }}
   major:
     description: Major version
-    value: ${{ steps.semantic-release.new_release_major_version }}
+    value: ${{ steps.semantic-release.outputs.new_release_major_version }}
   minor:
     description: Minor version
-    value: ${{ steps.semantic-release.new_release_minor_version }}
+    value: ${{ steps.semantic-release.outputs.new_release_minor_version }}
   patch:
     description: Patch version
-    value: ${{ steps.semantic-release.new_release_patch_version }}
+    value: ${{ steps.semantic-release.outputs.new_release_patch_version }}
   channel:
     description: Release channel
-    value: ${{ steps.semantic-release.new_release_channel }}
+    value: ${{ steps.semantic-release.outputs.new_release_channel }}
   release-notes:
     description: Release notes
-    value: ${{ steps.semantic-release.new_release_notes }}
+    value: ${{ steps.semantic-release.outputs.new_release_notes }}
 
 runs:
   using: "composite"
