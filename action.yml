@@ -20,8 +20,8 @@ inputs:
     default: ${{ github.token }}
 
 outputs:
-  success:
-    description: New release published
+  released:
+    description: New version released
     value: ${{ steps.semantic-release.new_release_published }}
   version:
     description: Version
