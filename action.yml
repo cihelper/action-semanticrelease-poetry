@@ -66,5 +66,5 @@ runs:
         PYPI_TOKEN: ${{ inputs.pypi-token }}
       with:
         semantic_version: ${{ steps.semantic-release-version.outputs.version }}
-        extra_plugins: "@cihelper/semanticrelease-preset-poetry@^1.0.0"
+        extra_plugins: "@cihelper/semanticrelease-preset-poetry@^1"
         extends: "@cihelper/semanticrelease-preset-poetry"
