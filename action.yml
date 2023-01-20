@@ -18,6 +18,9 @@ inputs:
     description: "GitHub token"
     required: false
     default: ${{ github.token }}
+  poetry-publish:
+    description: "If false, do not publish the library"
+    required: false
 
 outputs:
   released:
@@ -64,6 +67,7 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
         PYPI_TOKEN: ${{ inputs.pypi-token }}
+        POETRY_PUBLISH: ${{ inputs.poetry-publish }}
       with:
         semantic_version: ${{ steps.semantic-release-version.outputs.version }}
         extra_plugins: "@cihelper/semanticrelease-preset-poetry@1"
