@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: cihelper/action-semanticrelease-githubaction@v1
+      - uses: cihelper/action-semanticrelease-generic@v1
