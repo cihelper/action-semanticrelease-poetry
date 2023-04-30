@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.2.0...v1.3.0) (2023-04-30)
+
+
+### Features
+
+* remove dedicated poetry-publish input ([6437b47](https://github.com/cihelper/action-semanticrelease-poetry/commit/6437b471088a0bbd4c36bdc3b1a84b08420a80aa))
+
 ## [1.2.0](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.1.4...v1.2.0) (2023-01-20)
 
 
