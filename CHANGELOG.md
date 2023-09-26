@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.3.0...v1.3.1) (2023-09-26)
+
+
+### Bug Fixes
+
+* trigger release ([fdb79d8](https://github.com/cihelper/action-semanticrelease-poetry/commit/fdb79d80ee56fddc8abe89967d5019f5262504ab))
+* trigger release ([49a1fea](https://github.com/cihelper/action-semanticrelease-poetry/commit/49a1fea6767234dc1f5ba6e054ca69985b165169))
+
 ## [1.3.0](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.2.0...v1.3.0) (2023-04-30)
 
 
