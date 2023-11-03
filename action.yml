@@ -43,10 +43,10 @@ outputs:
     value: ${{ steps.semantic-release.outputs.new_release_notes }}
   git-head:
     description: The sha of the last commit being part of the new release
-    value: ${{ steps.semantic-release.outputs.new_git_head }}
+    value: ${{ steps.semantic-release.outputs.new_release_git_head }}
   git-tag:
     description: The Git tag associated with the new release.
-    value: ${{ steps.semantic-release.outputs.new_git_tag }}
+    value: ${{ steps.semantic-release.outputs.new_release_git_tag }}
   prev-version:
     description: Version of the previous release, if there was one. (e.g. "1.2.0")
     value: ${{ steps.semantic-release.outputs.last_release_version }}
