@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.3.2...v1.3.3) (2023-11-03)
+
+
+### Bug Fixes
+
+* use correct values for git-based outputs ([9278a6c](https://github.com/cihelper/action-semanticrelease-poetry/commit/9278a6cdded5844600f378b7fab8c6f916b29afa))
+
 ## [1.3.2](https://github.com/cihelper/action-semanticrelease-poetry/compare/v1.3.1...v1.3.2) (2023-11-03)
 
 
